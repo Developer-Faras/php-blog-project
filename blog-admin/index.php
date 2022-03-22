@@ -1,8 +1,11 @@
 <?php 
     $page_title = 'Stand Blog Admin Login';
-
     include_once('./includes/login_head.php');
+    include_once('./class/function.php');
 
+    $blog = new Blog();
+
+    
 ?>
     <body class="bg-primary">
         <div id="layoutAuthentication">

@@ -25,7 +25,7 @@
 
 
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#postLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
                                 Post
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
@@ -37,35 +37,36 @@
                             </div>
 
 
+                            <div class="sb-sidenav-menu-heading">Contact</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#contactLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-envelope"></i></div>
+                                Contact
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="contactLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">All Massages</a>
+                                    <a class="nav-link" href="#">Send New Massage</a>
+                                </nav>
+                            </div>
+                            
+
                             <div class="sb-sidenav-menu-heading">Settings</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#settingLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
                                 Settings
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="settingLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#">Nav Settings</a>
+                                    <a class="nav-link" href="#">Comment Settings</a>
                                     <a class="nav-link" href="#">Content Settings</a>
                                     <a class="nav-link" href="#">Site Settings</a>
                                     <a class="nav-link" href="#">Admin Settings</a>
                                 </nav>
                             </div>
 
-                            
-                            <div class="sb-sidenav-menu-heading">Contact</div>
-                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#contactLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Contact
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="contactLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">New Massages</a>
-                                    <a class="nav-link" href="#">All Massages</a>
-                                    <a class="nav-link" href="#">Send Massage</a>
-                                </nav>
-                            </div>
                             
                         </div>
                     </div>
