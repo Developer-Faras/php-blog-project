@@ -45,7 +45,6 @@
             }
         }
 
-
         // Admin Logout Function
         public function adminLogout(){
             session_start();
