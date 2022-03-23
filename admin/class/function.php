@@ -59,7 +59,13 @@
             header('location: ./../index.php');
         }
 
+        // Add Catagory Function
+        public function addCatagory($form_data){
+            $cata_name = $form_data['cata_name'];
+            $cata_desc = $form_data['cata_desc'];
 
+            
+        }
 
 
 
