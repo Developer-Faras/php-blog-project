@@ -15,7 +15,7 @@
         </div>
         
         <?php 
-            include_once('./includes/scripts.php');
+            include_once('./../includes/scripts.php');
         ?>
     </body>
 </html>

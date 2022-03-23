@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,6 +18,6 @@
         </title>
         
         <?php 
-            include_once('./includes/styles.php');
+            include_once('./../includes/styles.php');
         ?>
     </head>
