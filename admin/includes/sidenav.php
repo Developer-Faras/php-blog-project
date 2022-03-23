@@ -61,7 +61,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="./nav_settings.php">Nav Settings</a>
                                     <a class="nav-link" href="./comment_settings.php">Comment Settings</a>
-                                    <a class="nav-link" href="./content_setting.php">Content Settings</a>
+                                    <a class="nav-link" href="./content_settings.php">Content Settings</a>
                                     <a class="nav-link" href="./site_settings.php">Site Settings</a>
                                     <a class="nav-link" href="./admin_settings.php">Admin Settings</a>
                                 </nav>
