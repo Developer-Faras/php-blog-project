@@ -4,9 +4,19 @@
     include_once('./class/function.php');
 
     $blog = new Blog();
-    
 
+    // Get Login
+    if(isset($_POST['login'])){
+        $return_massage =  $blog->adminLogin($_POST);
+    }
 
+    // Check If Login
+    session_start();
+    if(isset($_SESSION['admin_login'])){
+        if($_SESSION['admin_login'] == true){
+            header('location: ./pages/dashboard.php');
+        }
+    }
 ?>
     <body class="bg-primary">
         <div id="layoutAuthentication">
@@ -16,7 +26,17 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4">Login</h3>
+
+                                        <h6 class="text-center font-weight-bold my-3">
+                                            <?php 
+                                                if(isset($return_massage)){
+                                                    echo $return_massage;
+                                                }
+                                            ?>
+                                        </h6>
+                                    </div>
                                     <div class="card-body">
                                         <form method="POST" >
                                             <div class="form-group">

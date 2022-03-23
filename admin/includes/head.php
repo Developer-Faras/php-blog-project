@@ -1,4 +1,26 @@
+<?php 
+    // Include Class And Create Object
+    include_once('./../class/function.php');
+    $blog = new Blog();
 
+
+    // Check If Login
+    session_start();
+    if(isset($_SESSION['admin_login'])){
+        if($_SESSION['admin_login'] == false){
+            header('location: ./../index.php');
+        }
+    }else{
+        header('location: ./../index.php');
+    }
+
+    // Get Logout
+    if(isset($_GET['logout'])){
+        if($_GET['logout'] == true){
+            $return_massage = $blog->adminLogout();
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
