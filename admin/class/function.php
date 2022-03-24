@@ -78,7 +78,7 @@
             
         }
 
-        // Get All Catagory Function
+        // Get All Data By Table Name
         public function getAllByTableName($table_name){
             $sql = "SELECT * FROM $table_name";
             $result = $this->db->query($sql);
@@ -88,9 +88,38 @@
             }
         }
 
+        // Get Data Using Id And Table Name
+        public function getDataById($table_name, $id){
+            $sql = "SELECT * FROM $table_name WHERE id='$id'";
+            $result = $this->db->query($sql);
 
+            if($result){
+                if(mysqli_num_rows($result) > 0){
+                    return $result;
+                }else{
+                    return 'No Data Found';
+                }
+            }else{
+                return 'Query Not Success';
+            }
+            
+        }
 
+        // Update Catagory Function
+        public function updateCatagory($form_data, $id){
+            $cata_name = $form_data['cata_name'];
+            $cata_desc = $form_data['cata_desc'];
+            $cata_show = $form_data['cata_show'];
 
+            $sql = "UPDATE catagory SET name='$cata_name', description='$cata_desc', page_show='$cata_show' WHERE id=$id";
+            $result = $this->db->query($sql);
+
+            if($result){
+                return 'Catagory Updated';
+            }else{
+                return 'Catagory Not Updated';
+            }
+        }
 
 
 
