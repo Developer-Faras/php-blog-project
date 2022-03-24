@@ -63,7 +63,18 @@
         public function addCatagory($form_data){
             $cata_name = $form_data['cata_name'];
             $cata_desc = $form_data['cata_desc'];
+            $cata_show = $form_data['cata_show'];
 
+
+
+            $sql = "INSERT INTO catagory (name, description, page_show) VALUES ('$cata_name', '$cata_desc', '$cata_show')";
+            $result = $this->db->query($sql);
+
+            if($result){
+                return 'Catagory Added Successfully';
+            }else{
+                return 'Catagory Not Added';
+            }
             
         }
 
