@@ -7,7 +7,17 @@
 ?>
 
 <?php 
+    // Get All Catagory
     $cata_data = $blog->getAllByTableName('catagory');
+
+    // Delete Catagory
+    if(isset($_GET['oparate'])){
+        if($_GET['oparate'] == 'delete' && isset($_GET['delete_id'])){
+            $delete_id = $_GET['delete_id'];
+
+            $return_massage = $blog->deleteByIdAndTable('catagory', $delete_id);
+        }
+    }
 ?>
 
 <div class="container-fluid"> 
@@ -15,6 +25,17 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard / Manage Catagory</li>
     </ol>
+
+    <div class="row"> 
+        <h5 class="font-weight-bold midium mb-3 px-3" id="massage_holder"> 
+            <?php 
+                if(isset($return_massage)){
+                    echo $return_massage;
+                    header('refresh:2');
+                }
+            ?>
+        </h5>
+    </div>
 
     <div class="row"> 
         <div class="card w-100">
@@ -68,7 +89,7 @@
                                             </td>
                                             <td>
                                                 <a href="./add_catagory.php?operate=edit&&id=<?php echo $cata_row['id']?>" class="btn btn-info btn-sm">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                <a href="?oparate=delete&&delete_id=<?php echo $cata_row['id']?>" class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
 

@@ -105,6 +105,18 @@
             
         }
 
+        // Delete By Id And Table Name
+        public function deleteByIdAndTable($table, $id){
+            $sql = "DELETE FROM $table WHERE id=$id";
+            $result = $this->db->query($sql);
+
+            if($result){
+                return 'Data Deleted';
+            }else{
+                return 'Data Not Deleted';
+            }
+        }
+
         // Update Catagory Function
         public function updateCatagory($form_data, $id){
             $cata_name = $form_data['cata_name'];
