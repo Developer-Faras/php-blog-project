@@ -31,7 +31,6 @@
             <?php 
                 if(isset($return_massage)){
                     echo $return_massage;
-                    header('refresh:2');
                 }
             ?>
         </h5>
