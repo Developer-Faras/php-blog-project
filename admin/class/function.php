@@ -78,7 +78,15 @@
             
         }
 
+        // Get All Catagory Function
+        public function getAllByTableName($table_name){
+            $sql = "SELECT * FROM $table_name";
+            $result = $this->db->query($sql);
 
+            if($result){
+                return $result;
+            }
+        }
 
 
 
