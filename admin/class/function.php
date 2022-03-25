@@ -59,25 +59,6 @@
             header('location: ./../index.php');
         }
 
-        // Add Catagory Function
-        public function addCatagory($form_data){
-            $cata_name = $form_data['cata_name'];
-            $cata_desc = $form_data['cata_desc'];
-            $cata_show = $form_data['cata_show'];
-
-
-
-            $sql = "INSERT INTO catagory (name, description, page_show) VALUES ('$cata_name', '$cata_desc', '$cata_show')";
-            $result = $this->db->query($sql);
-
-            if($result){
-                return 'Catagory Added Successfully';
-            }else{
-                return 'Catagory Not Added';
-            }
-            
-        }
-
         // Get All Data By Table Name
         public function getAllByTableName($table_name){
             $sql = "SELECT * FROM $table_name";
@@ -115,6 +96,25 @@
             }else{
                 return 'Data Not Deleted';
             }
+        }
+
+        // Add Catagory Function
+        public function addCatagory($form_data){
+            $cata_name = $form_data['cata_name'];
+            $cata_desc = $form_data['cata_desc'];
+            $cata_show = $form_data['cata_show'];
+
+
+
+            $sql = "INSERT INTO catagory (name, description, page_show) VALUES ('$cata_name', '$cata_desc', '$cata_show')";
+            $result = $this->db->query($sql);
+
+            if($result){
+                return 'Catagory Added Successfully';
+            }else{
+                return 'Catagory Not Added';
+            }
+            
         }
 
         // Update Catagory Function

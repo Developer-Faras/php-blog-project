@@ -31,7 +31,7 @@
                             </a>
                             <div class="collapse" id="postLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="./add_post.php">Add Post</a>
+                                    <a class="nav-link" href="./add_post.php?operate=add">Add Post</a>
                                     <a class="nav-link" href="./manage_post.php">Manage Post</a>
                                 </nav>
                             </div>
