@@ -9,6 +9,11 @@
     $cata_data = $blog->getAllByTableName('catagory');
 
 
+    // Add Post
+    if (isset($_POST['add_post'])) {
+        $return_massage = $blog->addPost($_POST);
+    }
+
 ?>
 
 <div class="container-fluid"> 
@@ -18,10 +23,20 @@
     </ol>
 
     <div class="row"> 
+        <h5 class="return_massage"> 
+            <?php 
+                if(isset($return_massage)){
+                    echo $return_massage;
+                }
+            ?>
+        </h5>
+    </div>
+
+    <div class="row"> 
         <?php 
             if(isset($_GET['operate'])){
                 if($_GET['operate'] == 'add'){ ?>
-                    <form action="" class="post_form w-100" id="post_form">
+                    <form action="" method="POST" enctype="multipart/form-data" class="post_form w-100" id="post_form">
 
                         <div class="form-group">
                             <label class="small mb-2 font-weight-bold" for="post_title">Post Title</label>
@@ -67,6 +82,13 @@
                             </select>
                         </div>
 
+                        <input type="hidden" name="post_author" value="<?php 
+                            if(isset($_SESSION['admin_name'])){
+                                echo $_SESSION['admin_name'];
+                            }else{
+                                echo 'Admin';
+                            }
+                        ?>">
                         <div class="form-group mt-4">
                             <input type="submit" value="Add Post" name="add_post" class="btn btn-primary form-control">
                         </div>
@@ -78,6 +100,35 @@
     </div>
 </div>
 
+<!-- Validation -->
+<script> 
+    let massage_holder = document.querySelector('.return_massage');
+
+    let form = document.getElementById('post_form');
+    let title = form.querySelector('#post_title');
+    let desc = form.querySelector('#post_content');
+    let img = form.querySelector('#post_thumbnails');
+    let tags = form.querySelector('#post_tags');
+
+    form.onsubmit = function(){
+        if(title.value == ''){
+            massage_holder.innerHTML = 'Post Title Is Empty';
+            return false;
+        }else if(desc.value == ''){
+            massage_holder.innerHTML = 'Post Description Is Empty';
+            return false;
+        }else if(img.value == ''){
+            massage_holder.innerHTML = 'Post Thumbnails Is Empty';
+            return false;
+        }else if(tags.value == ''){
+            massage_holder.innerHTML = 'Post Tags Is Empty';
+            return false;
+        }else{
+            massage_holder.innerHTML = '';
+            return;
+        }
+    }
+</script>
 
 <?php 
     include_once('./../includes/footer.php');
