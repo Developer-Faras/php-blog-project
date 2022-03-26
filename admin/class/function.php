@@ -163,7 +163,10 @@
             }
         }
 
-
+        // Update Post Function
+        public function updatePost($form){
+            return 'Function Are Working';
+        }
 
 
 
