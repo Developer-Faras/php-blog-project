@@ -72,7 +72,7 @@
                                             <td><?php 
                                                     $cata_id =  $post_row['post_cata'];
 
-                                                    // Get Catagory Name
+                                                    // Get Catagory Name For Show
                                                     $cata_return = $blog->getDataById('catagory', $cata_id);
                                                     $cata_row = $cata_return->fetch_assoc();
 
