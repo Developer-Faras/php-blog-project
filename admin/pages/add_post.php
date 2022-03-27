@@ -111,6 +111,7 @@
                     ?>
                         <form action="" method="POST" enctype="multipart/form-data" class="post_form w-100" id="post_form">
 
+                            <input type="hidden" name="post_id" value="<?php echo $post_data['id'];?>">
                             <div class="form-group">
                                 <label class="small mb-2 font-weight-bold" for="post_title">Post Title</label>
                                 <input name="post_title" class="form-control py-4 " id="post_title" type="text" value="<?php echo $post_data['post_title'];?>" />
@@ -124,7 +125,7 @@
                             <div class="form-group d-flex">
                                 <div class="form-group mr-5">
                                     <label class="small mb-2 d-block font-weight-bold" for="post_thumbnails">Post Thumbnail</label>
-                                    <input class="" type="file" name="post_thumbnails" id="post_thumbnails">
+                                    <input  value="<?php echo $post_data['post_img'];?>" class="" type="file" name="post_thumbnails" id="post_thumbnails">
                                 </div>
                                 <div class="img ml-5"> 
                                     <img width="300px" height="120px" src="<?php echo './../../upload/'.$post_data['post_img'];?>" alt="">

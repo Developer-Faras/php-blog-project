@@ -151,7 +151,7 @@
 
 
 
-            $sql = "INSERT INTO `posts`(`post_title`, `post_desc`, `post_img`, `post_cata`, `post_tags`, `post_author`, `post_date`, `post_comment_count`, `post_status`) VALUES ('$post_title','$post_content','$post_thumbnails_name',$post_catagory,'$post_tags','$post_author',now('d M Y'),2,'$post_status')";
+            $sql = "INSERT INTO `posts`(`post_title`, `post_desc`, `post_img`, `post_cata`, `post_tags`, `post_author`, `post_date`, `post_comment_count`, `post_status`) VALUES ('$post_title','$post_content','$post_thumbnails_name',$post_catagory,'$post_tags','$post_author',now(),0,'$post_status')";
 
             $result = $this->db->query($sql);
             if($result){
@@ -165,7 +165,30 @@
 
         // Update Post Function
         public function updatePost($form){
-            return 'Function Are Working';
+            $post_id = $form['post_id'];
+            $post_title = $form['post_title'];
+            $post_content = $form['post_content'];
+            $post_catagory = $form['post_catagory'];
+            $post_tags = $form['post_tags'];
+            $post_status = $form['post_status'];
+
+            $post_thumbnails = $_FILES['post_thumbnails'];
+            $post_thumbnails_name = $_FILES['post_thumbnails']['name'];
+            $post_thumbnails_tmp_name = $_FILES['post_thumbnails']['tmp_name'];
+
+
+            $sql = "UPDATE posts SET post_title='$post_title', post_desc='$post_content', post_img='$post_thumbnails_name', post_cata='$post_catagory', post_tags='$post_tags', post_status='$post_status' WHERE id=$post_id";
+
+            $result = $this->db->query($sql);
+            if($result){
+                if(!empty($post_thumbnails)){
+                    move_uploaded_file($post_thumbnails_tmp_name, './../../upload/'.$post_thumbnails_name);
+                    unlink('./../../upload/'.$post_thumbnails_name);
+                }
+                return 'Post Updated';
+            }else{
+                return 'PostNot Update';
+            }
         }
 
 
