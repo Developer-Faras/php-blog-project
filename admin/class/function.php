@@ -200,6 +200,19 @@
         }
 
 
+        // Delete Post Function
+        public function deletePost($id){
+            // Get Current Img Name
+            $post_data = $this->getDataById('posts', $id);
+            $post_fecth = $post_data->fetch_assoc();
+            $current_img = $post_fecth['post_img'];
 
+            if($this->deleteByIdAndTable('posts', $id)){
+                unlink('./../../upload/'.$current_img);
+                return 'Post Deleted';
+            }else{
+                return 'Post Not Deleted';
+            }
+        }
     }
 ?>

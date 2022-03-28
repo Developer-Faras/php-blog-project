@@ -7,6 +7,14 @@
 
     // Get All Post
     $post_data = $blog->getAllByTableName('posts');
+
+    // Get Delete Post
+    if(isset($_GET['operate']) && isset($_GET['id'])){
+        if($_GET['operate'] == 'delete'){
+            $delete_id = $_GET['id'];
+            $return_massage = $blog->deletePost($delete_id);
+        }
+    }
 ?>
 
 
