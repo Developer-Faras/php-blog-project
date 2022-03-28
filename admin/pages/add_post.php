@@ -125,7 +125,8 @@
                             <div class="form-group d-flex">
                                 <div class="form-group mr-5">
                                     <label class="small mb-2 d-block font-weight-bold" for="post_thumbnails">Post Thumbnail</label>
-                                    <input  value="<?php echo $post_data['post_img'];?>" class="" type="file" name="post_thumbnails" id="post_thumbnails">
+                                    <input class="" type="file" name="post_thumbnails" id="post_thumbnails">
+                                    <input type="hidden" name="current_img" value="<?php echo $post_data['post_img'];?>">
                                 </div>
                                 <div class="img ml-5"> 
                                     <img width="300px" height="120px" src="<?php echo './../../upload/'.$post_data['post_img'];?>" alt="">

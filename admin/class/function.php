@@ -172,22 +172,30 @@
             $post_tags = $form['post_tags'];
             $post_status = $form['post_status'];
 
+            $current_img = $form['current_img'];
             $post_thumbnails = $_FILES['post_thumbnails'];
             $post_thumbnails_name = $_FILES['post_thumbnails']['name'];
             $post_thumbnails_tmp_name = $_FILES['post_thumbnails']['tmp_name'];
 
+            if(!empty($post_thumbnails_name)){
+                $img_name = $post_thumbnails_name;
+            }else{
+                $img_name = $current_img;
+            }
 
-            $sql = "UPDATE posts SET post_title='$post_title', post_desc='$post_content', post_img='$post_thumbnails_name', post_cata='$post_catagory', post_tags='$post_tags', post_status='$post_status' WHERE id=$post_id";
+
+            $sql = "UPDATE posts SET post_title='$post_title', post_desc='$post_content', post_img='$img_name', post_cata='$post_catagory', post_tags='$post_tags', post_status='$post_status' WHERE id=$post_id";
 
             $result = $this->db->query($sql);
+
             if($result){
-                if(!empty($post_thumbnails)){
+                if(!empty($post_thumbnails_name)){
                     move_uploaded_file($post_thumbnails_tmp_name, './../../upload/'.$post_thumbnails_name);
-                    unlink('./../../upload/'.$post_thumbnails_name);
+                    unlink('./../../upload/'.$current_img);
                 }
                 return 'Post Updated';
             }else{
-                return 'PostNot Update';
+                return 'Post Not Update';
             }
         }
 
